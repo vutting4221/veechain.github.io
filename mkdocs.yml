@@ -102,7 +102,7 @@ nav:
         - How to use Trust Wallet in Binance Smart Chain : https://community.trustwallet.com/t/trust-wallet-now-supports-binance-smart-chain-bsc/67250
         - How to Send and Receive BNB on Smart Chain with Trust Wallet: https://community.trustwallet.com/t/how-to-send-and-receive-bnb-on-smart-chain/67430
         - Staking with extension wallet: smart-chain/wallet/staking.md
-  - Binance Chain Developers:
+  - Developers:
     - Binance Chain Fullnode:
       - Install: guides/node/install.md
       - Join Mainnet: guides/node/join-mainnet.md
@@ -154,8 +154,6 @@ nav:
         - Band Protocol Integration: smart-chain/developer/band.md
         - Chainlink Protocol Integration: smart-chain/developer/link.md
       - Wallet API: smart-chain/wallet/wallet_api.md
-  - Binance Smart Chain Developers:
-    - Get Started: smart-chain/guides/bsc-intro.md
   - Wallets:
     - Binance Chain Wallet Support: wallets/wallets.md
     - Binance Smart Chain Wallet Support: wallets/bsc-wallets.md
