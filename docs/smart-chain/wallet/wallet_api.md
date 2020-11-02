@@ -7,39 +7,10 @@ The presence of the provider object `window.BinanceChain` indicates a Binance Ch
 The API this extension wallet provides includes API specified by [EIP-1193](https://eips.ethereum.org/EIPS/eip-1193) and API defined by [MetaMask](https://docs.metamask.io/guide/ethereum-provider.html) (including some massively relied legacy ones).
 
 ## Development Progress
-Currently (version 1.108.2) this API and its corresponding UI are in actively development. Only the following json-rpc **hasn't** been implemented for `request`:
-```
-  web3_clientVersion,
-  web3_sha3,
-  net_version,
-  net_peerCount,
-  net_listening,
-  eth_newFilter,
-  eth_newBlockFilter,
-  eth_newPendingTransactionFilter,
-  eth_uninstallFilter,
-  eth_getFilterChanges,
-  eth_getFilterLogs
-```
+Currently (version 1.112.8) as Binance Chain Wallet natively supports Binance Chain, we are planning to open a series of APIs for dApp developers to interact with Binance Chain. At the end of the day, most [APIs available in Binance Chain javascript sdk](https://github.com/binance-chain/javascript-sdk/tree/master/docs) would be available.
 
-Other MetaMask properties and method implemented includes:
-```
-chainId
-isConnected()
-enable()
-```
-
-All MetaMask Events are supported:
-```
-connect
-disconnect
-accountsChanged // As currently the plugin only support one account, so listening to this event is a no-op
-chainChanged
-```
-
-As Binance Chain Wallet natively support Binance Chain, we are planning open a series of APIs for dApp developers to interact with Binance Chain. In the end of day, most [APIs available in Binance Chain javascript sdk](https://github.com/binance-chain/javascript-sdk/tree/master/docs) would be available.
-
-Currently only [`transfer`](https://github.com/binance-chain/javascript-sdk/tree/master/docs#transfer-tokens) is supported.
+Currently only the following is supported:
+* [`transfer`](https://github.com/binance-chain/javascript-sdk/tree/master/docs#transfer-tokens) 
 
 ## Difference with MetaMask
 
@@ -87,7 +58,66 @@ You can learn how to accomplish the `2` and `3` from above list by reviewing the
 
 The provider API is all you need to create a full-featured web3 application.
 
-We recommend developer keep DApp's capability to interact with `window.ethereum` object, in case the user wants to switch back to MetaMask (or other web3 standard injected wallet). 
+That said, many developers use a convenience library, such as ethers and web3.js, instead of using the provider directly. If you are in need of higher-level abstractions than those provided by this API, we recommend that you use a convenience library.
+
+Today, many dApps are built on top of higher-level API provided by [web3-react](https://github.com/NoahZinsmeister/web3-react) or [use-wallet](https://github.com/aragon/use-wallet) (which builds on top of web3-react). 
+
+ * web3-react
+
+We made a tiny lib [bsc-connector](https://www.npmjs.com/package/@binance-chain/bsc-connector) that implements the [AbstractConnector](https://github.com/NoahZinsmeister/web3-react/blob/v6/packages/abstract-connector/src/index.ts#L4) interface of [web3-react](https://github.com/NoahZinsmeister/web3-react) library. You can add this to your project in parallel with [injected-connector](https://github.com/NoahZinsmeister/web3-react/tree/v6/packages/injected-connector) by: `yarn add @binance-chain/web3-connector` or `npm i @binance-chain/bsc-connector`.
+
+```
+import { BscConnector } from '@binance-chain/bsc-connector'
+
+export const bsc = new BscConnector({
+  supportedChainIds: [56, 97] // later on 1 ethereum mainnet and 3 ethereum ropsten will be supported
+})
+
+// invoke method on bsc e.g.
+await bsc.activate();
+await bsc.getAccount();
+await bsc.getChainId();
+```
+
+* use-wallet
+
+We already raised a [PR](https://github.com/aragon/use-wallet/pull/64) to use-wallet. After it gets merged, dApp developer could provide an option to connect with binance chain wallet (only chain id 56 and 97 are supported now) in the following way:
+
+```
+import React from 'react'
+import { useWallet, UseWalletProvider } from 'use-wallet'
+
+function App() {
+  const wallet = useWallet()
+
+  return (
+      <>
+        <h1>Wallet</h1>
+        {wallet.status === 'connected' ? (
+            <div>
+              <div>Account: {wallet.account}</div>
+              <div>Balance: {wallet.balance}</div>
+              <button onClick={() => wallet.reset()}>disconnect</button>
+            </div>
+        ) : (
+            <div>
+              Connect:
+              <button onClick={() => wallet.connect('bsc')}>Binance Chain Wallet</button>
+            </div>
+        )}
+      </>
+  )
+}
+
+// Wrap everything in <UseWalletProvider />
+export default () => (
+    <UseWalletProvider
+        chainId={56}
+    >
+      <App />
+    </UseWalletProvider>
+)
+```
 
 ## Chain IDs
 
