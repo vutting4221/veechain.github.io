@@ -19,7 +19,7 @@ This dapp implements a "Hello World" style application that echoes a message pas
 
 ## The smart contract
 
-- Create new contract BEP20Token.sol and copy contract code from the bep20 token template [here](BEP20Token.template)
+- Create new contract BEP20Token.sol and copy contract code from the bep20 token template [here](../BEP20Token.template)
 
 - Modify “name”, “symbol”, “decimals” and “totalSupply” according to your requirements.
 
@@ -54,13 +54,13 @@ Now, We have to deploy our smart contract on Binance Smart Chain Network. For th
 <img src="https://lh6.googleusercontent.com/jrq511YshO6rPPx4i-ePRy2gs-66b465c_JFXEW8Cm5CSNTM7CXgCPuFmIh_Im3JlEhxpAqEDDjmUqfskq2m5rG-FKhwZ4_jIenOTdAVs_rMMTjTvZlM6iOpQeivrz_V1liSvuB5" alt="img" style="zoom:33%;" /></br>
 
 * Testnet
-        * [RPC URLs](../developer/rpc.md)
+        * [RPC URLs](../rpc.md)
         * ChainID: 97
         * Symbol: BNB
         * Block Explorer: https://testnet.bscscan.com
-    
+
 * Mainnet
-        * [RPC URLs](../developer/rpc.md)
+        * [RPC URLs](../rpc.md)
         * ChainID: 56
         * Symbol: BNB
         * Block Explorer: https://bscscan.com
@@ -69,7 +69,7 @@ Now, We have to deploy our smart contract on Binance Smart Chain Network. For th
 - Go ahead and click save
 - Copy your address from Metamask
 
-- Head over to [Faucet](https://testnet.binance.org/faucet-smart) and request test BNB 
+- Head over to [Faucet](https://testnet.binance.org/faucet-smart) and request test BNB
 
 - Now, let's Deploy the Smart Contract on Binance Smart Chain Testnet
 - Select Injected Web3 in the Environment dropdown and your contract

@@ -154,6 +154,6 @@ Summary
 
 **Congratulations!** You have successfully deployed BEP20 Smart Contract. Now you can interact with the Smart Contract.
 
-You can check the deployment status here: https://bscscan.com/
+You can check the deployment status here: <https://bscscan.com/> or <https://testnet.bscscan.com/>
 
 
