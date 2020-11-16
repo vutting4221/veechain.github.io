@@ -103,10 +103,14 @@ You can use `bnbcli`or `tbnbcli` to [redelegate](../../guides/concepts/bc-stakin
 
 ## For Testnet
 
+### Enable Testnet Configuration
+
+<img src="https://lh6.googleusercontent.com/mrQlZM2w-TDXQ_xfSA3XsSo_IhM0mtdnSg52Vi8pgjQYItKDAiuVwxoilMqBgVHgpc71c118-3U-79iXWP4cW-DacdfrY_RcbF3x633khQcB271pLCvLIa3uOwq19vrjZ46HDeB6" alt="img" style="zoom:33%;" />
+
 ### Get some testnet fund from faucet
 
 Go to this faucet page: <https://testnet.binance.org/faucet-smart>
 
 ### Transfer BNB from BSC to BC
 
-Please refer to this [guide](../validator/cross-chain-transfer.md)
+Please refer to this [guide](../wallet/binance.md#binance.html#transfer-testnet-bnb-from-bsc-to-bc)
